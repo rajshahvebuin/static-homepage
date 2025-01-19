@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>MyBrand</h1>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <!-- Overlay behind the sidebar -->
+        <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+        <div id="side-menu" class="side-menu">
+            <!-- Close Button inside the side menu -->
+            <button id="close-btn" class="close-btn" onclick="toggleMenu()">X</button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>    
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Website</h2>
+            <p>Your solution to all your needs</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section id="carousel" class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Service+1%3A+Web+Design" alt="Service 1: Web Design">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Service+2%3A+SEO+Optimization" alt="Service 2: SEO Optimization">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://via.placeholder.com/1200x400?text=Service+3%3A+Digital+Marketing" alt="Service 3: Digital Marketing">
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <span class="prev" onclick="moveSlide(-1)">&#10094;</span>
+            <span class="next" onclick="moveSlide(1)">&#10095;</span>
+        </div>
+    </section>
+
+   <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="service-card">
+            <h3>Service 1: Web Design</h3>
+            <p>We provide modern and responsive web design solutions that meet your needs...</p>
+            <!-- Dropdown menu -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#">Learn More</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-card">
+            <h3>Service 2: SEO Optimization</h3>
+            <p>Boost your website’s visibility and ranking on search engines...</p>
+            <!-- Dropdown menu -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#">Learn More</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-card">
+            <h3>Service 3: Digital Marketing</h3>
+            <p>Our digital marketing strategies will help you reach your target audience...</p>
+            <!-- Dropdown menu -->
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href="#">Learn More</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <h2>Latest Articles</h2>
+        <div class="blog-post">
+            <h3>Why SEO is Essential for Your Business</h3>
+            <p>SEO helps businesses grow by increasing their visibility online. Learn why investing in SEO should be a priority for your website...</p>
+        </div>
+        <div class="blog-post">
+            <h3>How to Create a User-Friendly Website</h3>
+            <p>Building a website that is easy to navigate and visually appealing can enhance user experience. Here are some essential tips...</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a passionate team of designers, developers, and marketers committed to providing innovative solutions for businesses. Our goal is to help you grow and succeed in the digital world.</p>
+        <div class="about-info">
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p>We strive to provide top-quality services that drive results for our clients. We aim to empower businesses through creative and effective digital strategies.</p>
+            </div>
+            <div class="about-card">
+                <h3>Our Vision</h3>
+                <p>Our vision is to become a leading provider of digital solutions by offering cutting-edge web design, marketing, and SEO strategies that meet our client's needs.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Us Section with Toggle Bar -->
+    <section id="contact" class="contact">
+        <div class="contact-bar" onclick="toggleContactForm()">
+            <h2>Contact Us</h2>
+            <span id="toggle-arrow" class="arrow-down">&#9660;</span> <!-- Initial down arrow -->
+        </div>
+        
+        <div id="contact-form" class="contact-form">
+            <form action="submit_form.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MyBrand. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

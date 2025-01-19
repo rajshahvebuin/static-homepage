@@ -1,0 +1,432 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Logo Styling */
+nav .logo h1 {
+    font-size: 24px;
+    color: white;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 30px;
+    height: 4px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Side Menu Styling (Initially off-screen) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen */
+    width: 250px; /* Sidebar width */
+    height: 100%;
+    background: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transition: right 0.3s ease; /* Animation for sliding in */
+    z-index: 999; /* Ensures it's on top of the overlay */
+}
+
+/* Close Button inside the menu */
+.close-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Side Menu List */
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin: 20px 0;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.side-menu a:hover {
+    background: #444;
+    border-radius: 5px;
+}
+
+/* Overlay Styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none; /* Initially hidden */
+    z-index: 998; /* Positioned below the sidebar */
+    transition: opacity 0.3s ease;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1500x400') no-repeat center center/cover;
+    height: 400px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: slideUp 1.2s ease-out; /* Slide-up animation */
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease-out; /* Fade-in up animation */
+}
+
+.hero .cta-button {
+    background: #ff6347;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Button hover effects */
+}
+
+.hero .cta-button:hover {
+    background: #ff4500;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Carousel Section */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-out; /* Fade-in animation */
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Fade-in animation for carousel images */
+}
+
+/* Navigation buttons for carousel */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-nav span {
+    font-size: 30px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-nav span:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1); /* Slight zoom effect for navigation buttons */
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #fff;
+    animation: fadeInUp 1.5s ease-out; /* Fade-in up animation */
+}
+
+/* Style for the dropdown content */
+.service-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* To position the dropdown content relative to the card */
+    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hide dropdown content by default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: -80px; /* Position the dropdown just below the card */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content ul li {
+    padding: 10px 20px;
+}
+
+.dropdown-content ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content ul li a:hover {
+    background-color: #f4f4f4; /* Light hover effect */
+}
+
+/* Show the dropdown content when hovering over the service card */
+.service-card:hover .dropdown-content {
+    display: block;
+}
+
+/* Optional hover effect for the service card */
+.service-card:hover {
+    transform: translateY(-5px); /* Slight lift when hovering over the card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow */
+}
+
+
+.blog {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.blog h2 {
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out; /* Fade-in animation for title */
+}
+
+.blog-post {
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effects */
+}
+
+.blog-post:hover {
+    transform: translateY(-5px); /* Hover effect for blog post */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Basic styling for the Contact Us section */
+.contact {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Styling for the toggle bar */
+.contact-bar {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+
+/* About Section */
+.about {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.about h2 {
+    margin-bottom: 20px;
+}
+
+.about-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.about-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 45%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Styling for the contact form */
+.contact-form {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Arrow styles */
+.arrow-down {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-up {
+    transform: rotate(180deg); /* Rotate the arrow */
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* Style for Back to Top button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: #ff6347; /* Change background on hover */
+}
+
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
